@@ -354,7 +354,7 @@ if ($use_mysql) {
 
 if ($use_csv) {
   $csvh = DBI->connect("DBI:CSV:f_dir=$csv_dir:") or die $DBI::errstr;
-  $csvh->{'csv_tables'}->{'sms'} = {'file' => $csv_file};
+  $csvh->{'csv_tables'}->{'sms'} = {'file' => "$csv_dir/$csv_file"};
   if (! -e "$csv_dir/$csv_file") {
     $csvh->do('CREATE TABLE sms (authid TEXT, cid_number TEXT, cid_name TEXT, msg_date INTEGER, tz INTEGER, message TEXT)') or die $DBI::errstr;
   }
