@@ -1,7 +1,7 @@
 
 FROM perl:5.24-slim-buster
 
-COPY goip-sms-server/sms-server.pl goip-sms-server/Net /goip-sms-server/
+COPY sms-server.pl Net /goip-sms-server/
 RUN apt-get update && apt-get install -y \
         build-essential \
         libmariadb-dev-compat \
