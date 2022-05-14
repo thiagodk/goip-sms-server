@@ -1,0 +1,16 @@
+
+version: "3"
+
+services:
+  goip-sms-server:
+    image: goip-sms-server:latest
+    build: .
+    command: ["--config-file", "goip-sms-config.ini"]
+    ports:
+      - "44444:44444/udp"
+    volumes:
+      - ./goip-sms-config.ini:/goip-sms-server/goip-sms-config.ini
+      - ./csv:/goip-sms-server/csv
+      - ./mail:/goip-sms-server/pop/mail
+
+
